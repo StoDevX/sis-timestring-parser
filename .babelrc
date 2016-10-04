@@ -4,8 +4,6 @@
 		"es2015",
 	],
 	"plugins": [
-		"syntax-export-extensions",
-		"transform-object-rest-spread",
-		"transform-export-extensions",
+		"transform-object-rest-spread"
 	]
 }
