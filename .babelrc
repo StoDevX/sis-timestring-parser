@@ -1,9 +1,6 @@
 {
 	"sourceMaps": false,
 	"presets": [
-		"es2015",
-	],
-	"plugins": [
-		"transform-object-rest-spread"
+		"es2015"
 	]
 }
