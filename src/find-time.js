@@ -1,4 +1,9 @@
-import cleanTimeStringSegment from './clean-time-string-segment'
+// Clean a timestring segment by uppercasing and trimming it.
+export function cleanTimestringSegment(segment) {
+	const uppercased = segment.toUpperCase()
+	const trimmed = uppercased.trim()
+	return trimmed
+}
 
 const amPmRegex = /([AP])\.?M\.?/i
 
@@ -13,7 +18,7 @@ export default function findTime(timestring) {
 	// Split the string apart and clean it up.
 	let [start, end] = cleanedTimestring
 		.split('-')
-		.map(cleanTimeStringSegment)
+		.map(cleanTimestringSegment)
 
 	// There are a few courses that both start and end at 00.
 	// I've decided that they mean that it's an all-day course.

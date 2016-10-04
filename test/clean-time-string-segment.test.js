@@ -1,14 +1,14 @@
 import test from 'ava'
-import cleanTimeStringSegment from '../src/clean-time-string-segment'
+import {cleanTimestringSegment} from '../src/find-time'
 
-test('cleanTimeStringSegment trims up a timestring segment', t => {
+test('cleanTimestringSegment trims up a timestring segment', t => {
 	const expected = '800AM'
-	const actual = cleanTimeStringSegment('    800AM   ')
+	const actual = cleanTimestringSegment('    800AM   ')
 	t.is(actual, expected)
 })
 
-test('cleanTimeStringSegment capitalizes a timestring segment', t => {
+test('cleanTimestringSegment capitalizes a timestring segment', t => {
 	const expected = '800AM'
-	const actual = cleanTimeStringSegment('800am')
+	const actual = cleanTimestringSegment('800am')
 	t.is(actual, expected)
 })

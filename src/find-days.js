@@ -1,4 +1,10 @@
-import daysOfTheWeek from './days-of-the-week'
+const daysOfTheWeek = {
+	M:  'Mo',
+	T:  'Tu',
+	W:  'We',
+	Th: 'Th',
+	F:  'Fr',
+}
 
 const daySequence = ['M', 'T', 'W', 'Th', 'F']
 
