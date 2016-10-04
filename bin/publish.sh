@@ -2,7 +2,7 @@
 
 set -e
 
-git pull --rebase
+git pull origin master --ff-only
 
 npm test
 
