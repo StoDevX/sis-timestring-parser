@@ -21,8 +21,11 @@ export default function convertTimeStringsToOfferings(course) {
 
 			let offering = {
 				day: day,
-				location: location,
 				times: [assign({}, time)],
+			}
+
+			if (location) {
+				offering.location = location
 			}
 
 			mergeWith(offerings[day], offering,
