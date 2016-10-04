@@ -17,4 +17,4 @@ npm run build
 npm publish
 npm run clean
 
-git push --follow-tags
+git push origin master --follow-tags
