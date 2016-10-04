@@ -1,7 +1,6 @@
 import test from 'ava'
-import 'babel-core/register'
-import checkCoursesForTimeConflicts from '../src/checkCoursesForTimeConflicts'
-import convertTimeStringsToOfferings from '../src/convertTimeStringsToOfferings'
+import checkCoursesForTimeConflicts from '../src/check-courses-for-time-conflicts'
+import convertTimeStringsToOfferings from '../src/convert-time-strings-to-offerings'
 
 test('checkCoursesForTimeConflicts checks for course time conflicts', t => {
 	let courses = [

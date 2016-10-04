@@ -1,6 +1,5 @@
 import test from 'ava'
-import 'babel-core/register'
-import findDays from '../src/findDays'
+import findDays from '../src/find-days'
 
 test('findDays turns the day abbreviations into a list of unambiguous days', t => {
 	t.same(findDays('M'), ['Mo'])

@@ -1,6 +1,5 @@
 import test from 'ava'
-import 'babel-core/register'
-import cleanTimeStringSegment from '../src/cleanTimeStringSegment'
+import cleanTimeStringSegment from '../src/clean-time-string-segment'
 
 test('cleanTimeStringSegment trims up a timestring segment', t => {
 	const expected = '800AM'

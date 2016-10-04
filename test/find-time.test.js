@@ -1,6 +1,5 @@
 import test from 'ava'
-import 'babel-core/register'
-import findTime from '../src/findTime'
+import findTime from '../src/find-time'
 
 test('findTime turns the absurd time shorthand into unambiguous 24-hour time', t => {
 	t.same(findTime('0200-0400PM'), {start: 1400, end: 1600})

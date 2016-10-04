@@ -1,5 +1,5 @@
 // @flow
-import cleanTimeStringSegment from './cleanTimeStringSegment'
+import cleanTimeStringSegment from './clean-time-string-segment'
 
 const amPmRegex = /([AP])\.?M\.?/i
 

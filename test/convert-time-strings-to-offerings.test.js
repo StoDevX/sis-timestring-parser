@@ -1,6 +1,5 @@
 import test from 'ava'
-import 'babel-core/register'
-import convertTimeStringsToOfferings from '../src/convertTimeStringsToOfferings'
+import convertTimeStringsToOfferings from '../src/convert-time-strings-to-offerings'
 
 test('convertTimeStringsToOfferings turns the timestrings into semi-usable objects', t => {
 	let course = {times: ['MT 0100-0400PM', 'MF 0905-1000']}

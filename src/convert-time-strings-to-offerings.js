@@ -3,8 +3,8 @@ import assign from 'lodash/assign'
 import mergeWith from 'lodash/mergeWith'
 import values from 'lodash/values'
 import zip from 'lodash/zip'
-import findDays from './findDays'
-import findTime from './findTime'
+import findDays from './find-days'
+import findTime from './find-time'
 
 export default function convertTimeStringsToOfferings(course) {
 	let offerings: offeringT = {}

@@ -1,5 +1,5 @@
 // @flow
-import checkCoursesForTimeConflicts from './checkCoursesForTimeConflicts'
+import checkCoursesForTimeConflicts from './check-courses-for-time-conflicts'
 
 export default function findScheduleTimeConflicts(courses: courseT[]): ?boolean[] {
 	// results = [

@@ -1,6 +1,5 @@
 import test from 'ava'
-import 'babel-core/register'
-import checkScheduleForTimeConflicts from '../src/checkScheduleForTimeConflicts'
+import checkScheduleForTimeConflicts from '../src/check-schedule-for-time-conflicts'
 
 test('checkScheduleForTimeConflicts checks if there is a time conflict in a schedule', t => {
 	let schedule = [
