@@ -26,7 +26,7 @@ test('findScheduleTimeConflicts finds all time conflicts in a schedule', t => {
 		[false, false, null],
 	]
 
-	t.same(findScheduleTimeConflicts(schedule), conflicts)
+	t.deepEqual(findScheduleTimeConflicts(schedule), conflicts)
 })
 
 test('findScheduleTimeConflicts uses `true` to indicate a conflict', t => {
@@ -44,7 +44,7 @@ test('findScheduleTimeConflicts uses `true` to indicate a conflict', t => {
 		[true, null],
 	]
 
-	t.same(findScheduleTimeConflicts(schedule), conflicts)
+	t.deepEqual(findScheduleTimeConflicts(schedule), conflicts)
 })
 
 test('findScheduleTimeConflicts uses `false` to indicate not-a-conflict', t => {
@@ -62,7 +62,7 @@ test('findScheduleTimeConflicts uses `false` to indicate not-a-conflict', t => {
 		[false, null],
 	]
 
-	t.same(findScheduleTimeConflicts(schedule), conflicts)
+	t.deepEqual(findScheduleTimeConflicts(schedule), conflicts)
 })
 
 test('findScheduleTimeConflicts uses `null` to indicate that the indices share the same course', t => {
@@ -84,5 +84,5 @@ test('findScheduleTimeConflicts uses `null` to indicate that the indices share t
 		[true, true, null],
 	]
 
-	t.same(findScheduleTimeConflicts(schedule), conflicts)
+	t.deepEqual(findScheduleTimeConflicts(schedule), conflicts)
 })

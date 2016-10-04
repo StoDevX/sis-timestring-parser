@@ -12,7 +12,7 @@ test('convertTimeStringsToOfferings turns the timestrings into semi-usable objec
 
 	let actual = convertTimeStringsToOfferings(course)
 
-	t.same(actual, expected)
+	t.deepEqual(actual, expected)
 })
 
 test('convertTimeStringsToOfferings correctly joins different times on the same day', t => {
@@ -28,7 +28,7 @@ test('convertTimeStringsToOfferings correctly joins different times on the same 
 
 	let actual = convertTimeStringsToOfferings(course)
 
-	t.same(actual, expected)
+	t.deepEqual(actual, expected)
 })
 
 test('convertTimeStringsToOfferings returns different time objects for different days', t => {
@@ -47,7 +47,7 @@ test('convertTimeStringsToOfferings joins locations with times offered', t => {
 
 	let actual = convertTimeStringsToOfferings(info)
 
-	t.same(actual, expected)
+	t.deepEqual(actual, expected)
 })
 
 test('convertTimeStringsToOfferings can join together multiple location/time pairs', t => {
@@ -64,5 +64,5 @@ test('convertTimeStringsToOfferings can join together multiple location/time pai
 
 	let actual = convertTimeStringsToOfferings(info)
 
-	t.same(actual, expected)
+	t.deepEqual(actual, expected)
 })
