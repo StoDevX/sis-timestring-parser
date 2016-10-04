@@ -1,6 +1,7 @@
-import checkCoursesForTimeConflicts from './check-courses-for-time-conflicts'
+// @flow
+import checkCoursesForTimeConflicts from './checkCoursesForTimeConflicts'
 
-export default function findScheduleTimeConflicts(courses) {
+export default function findScheduleTimeConflicts(courses: courseT[]): ?boolean[] {
 	// results = [
 	// 		[
 	// 			c1: null,
@@ -20,8 +21,8 @@ export default function findScheduleTimeConflicts(courses) {
 	// ]
 	// true = conflict, false = no conflict, null = same course
 
-	let results = courses.map(c1 => {
-		return courses.map(c2 => {
+	let results = courses.map(c1 => : ?boolean[] {
+		return courses.map(c2 => : ?boolean {
 			if (c1 === c2) {
 				return null
 			}
