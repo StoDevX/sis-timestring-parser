@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 2.2.9
+- Some internal refactorings
+
 ## 2.2.8
 - Fix wrong case in filename of `lodash/mergeWith` import
 
