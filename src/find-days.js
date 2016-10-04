@@ -1,10 +1,15 @@
-// @flow
-import daysOfTheWeek from './daysOfTheWeek'
+const daysOfTheWeek = {
+	M:  'Mo',
+	T:  'Tu',
+	W:  'We',
+	Th: 'Th',
+	F:  'Fr',
+}
 
 const daySequence = ['M', 'T', 'W', 'Th', 'F']
 
-export default function findDays(daystring: string): string[] {
-	let listOfDays: string[] = []
+export default function findDays(daystring) {
+	let listOfDays = []
 
 	if (daystring.indexOf('-') !== -1) {
 		// M-F, M-Th, T-F
@@ -16,7 +21,7 @@ export default function findDays(daystring: string): string[] {
 	}
 	else {
 		// MTThFW or M/T/Th/F/W
-		let spacedOutDays: string = daystring.replace(/([A-Z][a-z]?)\/?/g, '$1 ')
+		let spacedOutDays = daystring.replace(/([A-Z][a-z]?)\/?/g, '$1 ')
 		// The regex sticks an extra space at the end. Remove it.
 		spacedOutDays = spacedOutDays.substr(0, spacedOutDays.length - 1)
 		listOfDays = spacedOutDays.split(' ')
