@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 2.2.11
+- Fix index.js file
+
+## 2.2.10
+- Same version as as 2.2.9
+
 ## 2.2.9
 - Some internal refactorings
 
