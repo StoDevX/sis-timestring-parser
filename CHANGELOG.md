@@ -1,7 +1,8 @@
 # CHANGELOG
 
-## NEXT
+## 2.2.12
 - Remove babel-plugin-object-rest-spread, as it wasn't being used
+- Don't publish `.babelrc`
 
 ## 2.2.11
 - Fix index.js file
