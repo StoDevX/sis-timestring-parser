@@ -3,6 +3,7 @@
 ## 2.2.12
 - Remove babel-plugin-object-rest-spread, as it wasn't being used
 - Don't publish `.babelrc`
+- Added `package-lock.json` for development
 
 ## 2.2.11
 - Fix index.js file
