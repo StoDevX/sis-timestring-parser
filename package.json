@@ -11,6 +11,7 @@
     "clean": "rm -rf lib/",
     "cover": "nyc npm test",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "prepublishOnly": "npm run test && npm run build",
     "push": "./bin/publish.sh",
     "test": "ava"
   },

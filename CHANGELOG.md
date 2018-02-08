@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 2.2.13
+- Fixes bundled package – I had forgotten how to publish properly
+
 ## 2.2.12
 - Remove babel-plugin-object-rest-spread, as it wasn't being used
 - Don't publish `.babelrc`
