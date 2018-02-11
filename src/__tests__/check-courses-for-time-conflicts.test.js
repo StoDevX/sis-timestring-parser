@@ -1,7 +1,7 @@
 import checkCoursesForTimeConflicts from '../check-courses-for-time-conflicts'
 import convertTimeStringsToOfferings from '../convert-time-strings-to-offerings'
 
-test('checkCoursesForTimeConflicts checks for course time conflicts', () => {
+test('checks for course time conflicts', () => {
 	let courses = [
 		{offerings: [
 			{day: 'Mo', times:[{start:1300, end:1600}, {start:905, end:1000}]},
@@ -26,7 +26,7 @@ test('checkCoursesForTimeConflicts checks for course time conflicts', () => {
 	expect(checkCoursesForTimeConflicts(courses[1], courses[2])).toBe(false)
 })
 
-test('checkCoursesForTimeConflicts handles the output of convertTimeStringsToOfferings', () => {
+test('handles the output of convertTimeStringsToOfferings', () => {
 	let testing = [
 		{offerings: convertTimeStringsToOfferings({times: ['M 1255-0325PM']})},
 		{offerings: convertTimeStringsToOfferings({times: ['MWF 0200-0255PM']})},

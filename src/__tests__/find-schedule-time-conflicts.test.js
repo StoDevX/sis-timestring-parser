@@ -1,6 +1,6 @@
 import findScheduleTimeConflicts from '../find-schedule-time-conflicts'
 
-test('findScheduleTimeConflicts finds all time conflicts in a schedule', () => {
+test('finds all time conflicts in a schedule', () => {
 	let schedule = [
 		{offerings: [
 			{day: 'Mo', times:[{start:1300, end:1600}, {start:905, end:1000}]},
@@ -28,7 +28,7 @@ test('findScheduleTimeConflicts finds all time conflicts in a schedule', () => {
 	expect(findScheduleTimeConflicts(schedule)).toEqual(conflicts)
 })
 
-test('findScheduleTimeConflicts uses `true` to indicate a conflict', () => {
+test('uses `true` to indicate a conflict', () => {
 	let schedule = [
 		{offerings: [
 			{day: 'Mo', times:[{start:1300, end:1600}]},
@@ -46,7 +46,7 @@ test('findScheduleTimeConflicts uses `true` to indicate a conflict', () => {
 	expect(findScheduleTimeConflicts(schedule)).toEqual(conflicts)
 })
 
-test('findScheduleTimeConflicts uses `false` to indicate not-a-conflict', () => {
+test('uses `false` to indicate not-a-conflict', () => {
 	let schedule = [
 		{offerings: [
 			{day: 'Mo', times:[{start:1000, end:1200}]},
@@ -64,7 +64,7 @@ test('findScheduleTimeConflicts uses `false` to indicate not-a-conflict', () => 
 	expect(findScheduleTimeConflicts(schedule)).toEqual(conflicts)
 })
 
-test('findScheduleTimeConflicts uses `null` to indicate that the indices share the same course', () => {
+test('uses `null` to indicate that the indices share the same course', () => {
 	let schedule = [
 		{offerings: [
 			{day: 'Mo', times:[{start:1000, end:1200}]},

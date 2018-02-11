@@ -1,10 +1,10 @@
 import findTime from '../find-time'
 
-test('findTime turns the absurd time shorthand into unambiguous 24-hour time', () => {
+test('turns the absurd time shorthand into unambiguous 24-hour time', () => {
 	expect(findTime('0200-0400PM')).toEqual({start: 1400, end: 1600})
 })
 
-test('findTime handles times with colons', () => {
+test('handles times with colons', () => {
 	expect(findTime('5:00-9:00')).toEqual({start: 500, end: 900})
 	expect(findTime('7:00-9:00')).toEqual({start: 700, end: 900})
 	expect(findTime('8:00-9:00')).toEqual({start: 800, end: 900})
@@ -13,16 +13,16 @@ test('findTime handles times with colons', () => {
 	expect(findTime('8:00-9:25')).toEqual({start: 800, end: 925})
 })
 
-test('findTime handles all-day times', () => {
+test('handles all-day times', () => {
 	expect(findTime('00-00')).toEqual({start: 0, end: 2359})
 })
 
-test('findTime handles both courses that should and courses that do end in the afternoon', () => {
+test('handles both courses that should and courses that do end in the afternoon', () => {
 	expect(findTime('0100-0400')).toEqual({start: 1300, end: 1600})
 	expect(findTime('0100-0400PM')).toEqual({start: 1300, end: 1600})
 })
 
-test('findTime handles every variant that the SIS contains', () => {
+test('handles every variant that the SIS contains', () => {
 	expect(findTime('5:00-9:00')).toEqual({start: 500, end: 900})
 	expect(findTime('7:00-9:00')).toEqual({start: 700, end: 900})
 	expect(findTime('8:00-9:00')).toEqual({start: 800, end: 900})

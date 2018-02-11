@@ -1,6 +1,6 @@
 import convertTimeStringsToOfferings from '../convert-time-strings-to-offerings'
 
-test('convertTimeStringsToOfferings turns the timestrings into semi-usable objects', () => {
+test('turns the timestrings into semi-usable objects', () => {
 	let course = {times: ['MT 0100-0400PM', 'MF 0905-1000']}
 
 	let expected = [
@@ -14,7 +14,7 @@ test('convertTimeStringsToOfferings turns the timestrings into semi-usable objec
 	expect(actual).toEqual(expected)
 })
 
-test('convertTimeStringsToOfferings correctly joins different times on the same day', () => {
+test('correctly joins different times on the same day', () => {
 	let course = {times: ['M-Th 0100-0200PM', 'MF 0905-1000']}
 
 	let expected = [
@@ -30,13 +30,13 @@ test('convertTimeStringsToOfferings correctly joins different times on the same 
 	expect(actual).toEqual(expected)
 })
 
-test('convertTimeStringsToOfferings returns different time objects for different days', () => {
+test('returns different time objects for different days', () => {
 	let actual = convertTimeStringsToOfferings({times: ['MF 0905-1000']})
 
 	expect(actual[0].times[0]).not.toBe(actual[1].times[0])
 })
 
-test('convertTimeStringsToOfferings joins locations with times offered', () => {
+test('joins locations with times offered', () => {
 	let info = {times: ['MF 0905-1000'], locations: ['TOH 103']}
 
 	let expected = [
@@ -49,7 +49,7 @@ test('convertTimeStringsToOfferings joins locations with times offered', () => {
 	expect(actual).toEqual(expected)
 })
 
-test('convertTimeStringsToOfferings can join together multiple location/time pairs', () => {
+test('can join together multiple location/time pairs', () => {
 	let info = {
 		times: ['MF 0905-1000', 'W 1000-1155'],
 		locations: ['TOH 103', 'RNS 203'],

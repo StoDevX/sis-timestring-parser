@@ -1,12 +1,12 @@
 import {cleanTimestringSegment} from '../find-time'
 
-test('cleanTimestringSegment trims up a timestring segment', () => {
+test('trims up a timestring segment', () => {
 	const expected = '800AM'
 	const actual = cleanTimestringSegment('    800AM   ')
 	expect(actual).toBe(expected)
 })
 
-test('cleanTimestringSegment capitalizes a timestring segment', () => {
+test('capitalizes a timestring segment', () => {
 	const expected = '800AM'
 	const actual = cleanTimestringSegment('800am')
 	expect(actual).toBe(expected)

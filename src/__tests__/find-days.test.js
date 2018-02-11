@@ -1,6 +1,6 @@
 import findDays from '../find-days'
 
-test('findDays turns the day abbreviations into a list of unambiguous days', () => {
+test('turns the day abbreviations into a list of unambiguous days', () => {
 	expect(findDays('M')).toEqual(['Mo'])
 	expect(findDays('T')).toEqual(['Tu'])
 	expect(findDays('W')).toEqual(['We'])
@@ -8,20 +8,20 @@ test('findDays turns the day abbreviations into a list of unambiguous days', () 
 	expect(findDays('F')).toEqual(['Fr'])
 })
 
-test('findDays handles hyphenated day sequences', () => {
+test('handles hyphenated day sequences', () => {
 	expect(findDays('M-F')).toEqual(['Mo', 'Tu', 'We', 'Th', 'Fr'])
 	expect(findDays('M-Th')).toEqual(['Mo', 'Tu', 'We', 'Th'])
 	expect(findDays('T-F')).toEqual(['Tu', 'We', 'Th', 'Fr'])
 	expect(findDays('M-T')).toEqual(['Mo', 'Tu'])
 })
 
-test('findDays handles strings of letters correctly', () => {
+test('handles strings of letters correctly', () => {
 	expect(findDays('MTThFW')).toEqual(['Mo', 'Tu', 'Th', 'Fr', 'We'])
 	expect(findDays('MTTh')).toEqual(['Mo', 'Tu', 'Th'])
 	expect(findDays('ThFMT')).toEqual(['Th', 'Fr', 'Mo', 'Tu'])
 })
 
-test('findDays correctly parses every variant that the SIS contains', () => {
+test('correctly parses every variant that the SIS contains', () => {
 	expect(findDays('F')).toEqual(['Fr'])
 	expect(findDays('M')).toEqual(['Mo'])
 	expect(findDays('M-F')).toEqual(['Mo', 'Tu', 'We', 'Th', 'Fr'])
