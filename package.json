@@ -15,15 +15,6 @@
     "push": "./bin/publish.sh",
     "test": "ava"
   },
-  "ava": {
-    "files": [
-      "test/"
-    ],
-    "require": [
-      "babel-register"
-    ],
-    "failFast": true
-  },
   "dependencies": {
     "lodash": "^4.0.0"
   },
