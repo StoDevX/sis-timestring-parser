@@ -13,7 +13,7 @@ export default function convertTimeStringsToOfferings(course, {groupBy='day'}={}
 	} else if (groupBy === 'sis') {
 		return convertAndGroupLikeSis(course)
 	} else {
-		throw new Error(`"${groupBy}" is not a valid groupBy mode`)
+		throw new TypeError(`"${groupBy}" is not a valid groupBy mode`)
 	}
 }
 
@@ -56,24 +56,20 @@ function convertAndGroupLikeSis(course) {
 
 		const days = findDays(daystring)
 		const time = findTime(timestring)
+		const key = days.join(',')
 
-		days.forEach(day => {
-			if (!offerings[day]) {
-				offerings[day] = {}
-			}
+		if (!offerings[key]) {
+			offerings[key] = {}
+		}
 
-			let offering = {
-				day: day,
-				times: [assign({}, time)],
-			}
+		let offering = {days, ...time}
 
-			if (location) {
-				offering.location = location
-			}
+		if (location) {
+			offering.location = location
+		}
 
-			mergeWith(offerings[day], offering,
-				(a, b) => Array.isArray(a) ? a.concat(b) : undefined)
-		})
+		mergeWith(offerings[key], offering,
+			(a, b) => Array.isArray(a) ? a.concat(b) : undefined)
 	})
 
 	return values(offerings)

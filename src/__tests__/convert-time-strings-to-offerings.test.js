@@ -65,3 +65,45 @@ test('can join together multiple location/time pairs', () => {
 
 	expect(actual).toEqual(expected)
 })
+
+test('throws an error when an invalid groupBy parameter is passed', () => {
+	let info = {
+		times: ['MF 0905-1000', 'W 1000-1155'],
+		locations: ['TOH 103', 'RNS 203'],
+	}
+
+	const actual = () => convertTimeStringsToOfferings(info, {groupBy: '--invalid--'})
+
+	expect(() => actual()).toThrow('"--invalid--" is not a valid groupBy mode')
+})
+
+describe('in groupBy=day mode', () => {
+	test('groups the "times" by "day" (of the week)', () => {
+		let course = {times: ['MT 0100-0400PM', 'MF 0905-1000']}
+
+		let expected = [
+			{day: 'Mo', times: [{start:1300, end:1600}, {start:905, end:1000}]},
+			{day: 'Tu', times: [{start:1300, end:1600}]},
+			{day: 'Fr', times: [{start:905,  end:1000}]},
+		]
+
+		let actual = convertTimeStringsToOfferings(course, {groupBy: 'day'})
+
+		expect(actual).toEqual(expected)
+	})
+})
+
+describe('in groupBy=sis mode', () => {
+	test('retains the gay groupings given by SIS', () => {
+		let course = {times: ['MT 0100-0400PM', 'MF 0905-1000']}
+
+		let expected = [
+			{days: ['Mo', 'Tu'], start:1300, end:1600},
+			{days: ['Mo', 'Fr'], start:905,  end:1000},
+		]
+
+		let actual = convertTimeStringsToOfferings(course, {groupBy: 'sis'})
+
+		expect(actual).toEqual(expected)
+	})
+})
