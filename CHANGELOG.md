@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 2.3.3
+- We now test the published package on Travis
+- Removed babel configuration to prevent React Native from re-compiling the library
+
 ## 2.3.2
 - Fix post-compilation files being in the wrong location (`/lib/src`, instead of just `/lib`)
 
