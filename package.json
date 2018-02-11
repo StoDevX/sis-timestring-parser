@@ -19,12 +19,6 @@
     "prepublishOnly": "npm run test && npm run build",
     "test": "jest"
   },
-  "babel": {
-    "sourceMaps": false,
-    "presets": [
-      "es2015"
-    ]
-  },
   "dependencies": {
     "lodash": "^4.0.0"
   },
