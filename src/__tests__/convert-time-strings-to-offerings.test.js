@@ -98,8 +98,8 @@ describe('in groupBy=sis mode', () => {
 		let course = {times: ['MT 0100-0400PM', 'MF 0905-1000']}
 
 		let expected = [
-			{days: ['Mo', 'Tu'], start:1300, end:1600},
-			{days: ['Mo', 'Fr'], start:905,  end:1000},
+			{days: ['Mo', 'Tu'], times: [{start:1300, end:1600}]},
+			{days: ['Mo', 'Fr'], times: [{start:905,  end:1000}]},
 		]
 
 		let actual = convertTimeStringsToOfferings(course, {groupBy: 'sis'})
@@ -114,8 +114,8 @@ describe('in groupBy=sis mode', () => {
 		}
 
 		let expected = [
-			{days: ['Mo', 'Tu'], start:1300, end:1600, location: 'TOH 103'},
-			{days: ['Mo', 'Fr'], start:905,  end:1000, location: 'RNS 203'},
+			{days: ['Mo', 'Tu'], times: [{start:1300, end:1600}], location: 'TOH 103'},
+			{days: ['Mo', 'Fr'], times: [{start:905,  end:1000}], location: 'RNS 203'},
 		]
 
 		let actual = convertTimeStringsToOfferings(course, {groupBy: 'sis'})
@@ -123,11 +123,14 @@ describe('in groupBy=sis mode', () => {
 		expect(actual).toEqual(expected)
 	})
 
-	test('overwrites the offering if the same days are given again', () => {
+	test('does not overwrite the offering if the same days are given again', () => {
 		let course = {times: ['MT 0100-0400PM', 'MT 0905-1000']}
 
 		let expected = [
-			{days: ['Mo', 'Tu'], start:905, end:1000},
+			{days: ['Mo', 'Tu'], times: [
+				{start:1300, end:1600},
+				{start:905,  end:1000},
+			]},
 		]
 
 		let actual = convertTimeStringsToOfferings(course, {groupBy: 'sis'})
@@ -142,8 +145,8 @@ describe('in groupBy=sis mode', () => {
 		}
 
 		let expected = [
-			{days: ['Mo', 'Tu'], start:1300, end:1600, location: 'Place 1'},
-			{days: ['Tu', 'Mo'], start:905,  end:1000, location: 'Place 2'},
+			{days: ['Mo', 'Tu'], times: [{start:1300, end:1600}], location: 'Place 1'},
+			{days: ['Tu', 'Mo'], times: [{start:905,  end:1000}], location: 'Place 2'},
 		]
 
 		let actual = convertTimeStringsToOfferings(course, {groupBy: 'sis'})

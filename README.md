@@ -30,7 +30,7 @@ convertTimeStringsToOfferings(course, {groupBy: 'sis'})
 
 // output
 [
-    { days: ['Mo', 'Tu'], start: 1300, end: 1600 },
-    { days: ['Mo', 'Fr'], start: 905,  end: 1000 },
+    { days: ['Mo', 'Tu'], times: [{start: 1300, end: 1600}] },
+    { days: ['Mo', 'Fr'], times: [{start: 905,  end: 1000}] },
 ]
 ```
