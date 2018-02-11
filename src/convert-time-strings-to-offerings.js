@@ -58,18 +58,13 @@ function convertAndGroupLikeSis(course) {
 		const time = findTime(timestring)
 		const key = days.join(',')
 
-		if (!offerings[key]) {
-			offerings[key] = {}
-		}
-
 		let offering = {days, ...time}
 
 		if (location) {
 			offering.location = location
 		}
 
-		mergeWith(offerings[key], offering,
-			(a, b) => Array.isArray(a) ? a.concat(b) : undefined)
+		offerings[key] = offering
 	})
 
 	return values(offerings)

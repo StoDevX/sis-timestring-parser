@@ -22,6 +22,12 @@ test('handles both courses that should and courses that do end in the afternoon'
 	expect(findTime('0100-0400PM')).toEqual({start: 1300, end: 1600})
 })
 
+test('handles coures with explicit AM notation', () => {
+	expect(findTime('1100AM-0400PM')).toEqual({start: 1100, end: 1600})
+	// TODO: this is wierd
+	expect(findTime('100AM-0400')).toEqual({start: 100, end: 1600})
+})
+
 test('handles every variant that the SIS contains', () => {
 	expect(findTime('5:00-9:00')).toEqual({start: 500, end: 900})
 	expect(findTime('7:00-9:00')).toEqual({start: 700, end: 900})
