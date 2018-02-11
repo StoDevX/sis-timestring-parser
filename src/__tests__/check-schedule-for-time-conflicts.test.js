@@ -1,4 +1,4 @@
-import checkScheduleForTimeConflicts from '../src/check-schedule-for-time-conflicts'
+import checkScheduleForTimeConflicts from '../check-schedule-for-time-conflicts'
 
 test('checkScheduleForTimeConflicts checks if there is a time conflict in a schedule', () => {
 	let schedule = [

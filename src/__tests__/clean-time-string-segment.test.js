@@ -1,4 +1,4 @@
-import {cleanTimestringSegment} from '../src/find-time'
+import {cleanTimestringSegment} from '../find-time'
 
 test('cleanTimestringSegment trims up a timestring segment', () => {
 	const expected = '800AM'

@@ -1,4 +1,4 @@
-import findDays from '../src/find-days'
+import findDays from '../find-days'
 
 test('findDays turns the day abbreviations into a list of unambiguous days', () => {
 	expect(findDays('M')).toEqual(['Mo'])

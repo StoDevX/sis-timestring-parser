@@ -1,4 +1,4 @@
-import findTime from '../src/find-time'
+import findTime from '../find-time'
 
 test('findTime turns the absurd time shorthand into unambiguous 24-hour time', () => {
 	expect(findTime('0200-0400PM')).toEqual({start: 1400, end: 1600})

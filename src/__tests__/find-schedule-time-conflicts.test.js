@@ -1,4 +1,4 @@
-import findScheduleTimeConflicts from '../src/find-schedule-time-conflicts'
+import findScheduleTimeConflicts from '../find-schedule-time-conflicts'
 
 test('findScheduleTimeConflicts finds all time conflicts in a schedule', () => {
 	let schedule = [

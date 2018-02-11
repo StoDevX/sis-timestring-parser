@@ -1,4 +1,4 @@
-import convertTimeStringsToOfferings from '../src/convert-time-strings-to-offerings'
+import convertTimeStringsToOfferings from '../convert-time-strings-to-offerings'
 
 test('convertTimeStringsToOfferings turns the timestrings into semi-usable objects', () => {
 	let course = {times: ['MT 0100-0400PM', 'MF 0905-1000']}

@@ -1,5 +1,5 @@
-import checkCoursesForTimeConflicts from '../src/check-courses-for-time-conflicts'
-import convertTimeStringsToOfferings from '../src/convert-time-strings-to-offerings'
+import checkCoursesForTimeConflicts from '../check-courses-for-time-conflicts'
+import convertTimeStringsToOfferings from '../convert-time-strings-to-offerings'
 
 test('checkCoursesForTimeConflicts checks for course time conflicts', () => {
 	let courses = [
