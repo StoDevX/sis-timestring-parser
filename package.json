@@ -7,7 +7,7 @@
   "license": "MIT",
   "main": "index.js",
   "scripts": {
-    "build": "babel src/ --out-dir lib/",
+    "build": "babel src/*.js --out-dir lib/",
     "clean": "rm -rf lib/",
     "prepublishOnly": "npm run test && npm run build",
     "test": "jest"

@@ -58,7 +58,7 @@ function convertAndGroupLikeSis(course) {
 		const time = findTime(timestring)
 		const key = days.join(',')
 
-		let offering = {days, ...time}
+		let offering = assign({}, {days}, time)
 
 		if (location) {
 			offering.location = location
