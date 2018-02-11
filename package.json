@@ -6,6 +6,13 @@
   "author": "Hawken M. Rives",
   "license": "MIT",
   "main": "index.js",
+  "files": [
+    "package.json",
+    "README.md",
+    "CHANGELOG.md",
+    "index.js",
+    "lib/"
+  ],
   "scripts": {
     "build": "babel src/*.js --out-dir lib/",
     "clean": "rm -rf lib/",
