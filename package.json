@@ -15,6 +15,12 @@
     "push": "./bin/publish.sh",
     "test": "ava"
   },
+  "babel": {
+    "sourceMaps": false,
+    "presets": [
+      "es2015"
+    ]
+  },
   "dependencies": {
     "lodash": "^4.0.0"
   },
