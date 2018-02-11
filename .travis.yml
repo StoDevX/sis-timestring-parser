@@ -14,7 +14,7 @@ matrix:
 
     - script:
         - PKG="$(npm pack)"
-        - tar xzf < "$PKG"
+        - tar xz < "$PKG"
         - cd ./package
         - npm install
         - npx browserify@16 index.js > bundle.js
