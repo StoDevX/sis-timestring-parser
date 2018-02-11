@@ -1,7 +1,6 @@
-import test from 'ava'
-import findScheduleTimeConflicts from '../src/find-schedule-time-conflicts'
+import findScheduleTimeConflicts from '../find-schedule-time-conflicts'
 
-test('findScheduleTimeConflicts finds all time conflicts in a schedule', t => {
+test('finds all time conflicts in a schedule', () => {
 	let schedule = [
 		{offerings: [
 			{day: 'Mo', times:[{start:1300, end:1600}, {start:905, end:1000}]},
@@ -26,10 +25,10 @@ test('findScheduleTimeConflicts finds all time conflicts in a schedule', t => {
 		[false, false, null],
 	]
 
-	t.deepEqual(findScheduleTimeConflicts(schedule), conflicts)
+	expect(findScheduleTimeConflicts(schedule)).toEqual(conflicts)
 })
 
-test('findScheduleTimeConflicts uses `true` to indicate a conflict', t => {
+test('uses `true` to indicate a conflict', () => {
 	let schedule = [
 		{offerings: [
 			{day: 'Mo', times:[{start:1300, end:1600}]},
@@ -44,10 +43,10 @@ test('findScheduleTimeConflicts uses `true` to indicate a conflict', t => {
 		[true, null],
 	]
 
-	t.deepEqual(findScheduleTimeConflicts(schedule), conflicts)
+	expect(findScheduleTimeConflicts(schedule)).toEqual(conflicts)
 })
 
-test('findScheduleTimeConflicts uses `false` to indicate not-a-conflict', t => {
+test('uses `false` to indicate not-a-conflict', () => {
 	let schedule = [
 		{offerings: [
 			{day: 'Mo', times:[{start:1000, end:1200}]},
@@ -62,10 +61,10 @@ test('findScheduleTimeConflicts uses `false` to indicate not-a-conflict', t => {
 		[false, null],
 	]
 
-	t.deepEqual(findScheduleTimeConflicts(schedule), conflicts)
+	expect(findScheduleTimeConflicts(schedule)).toEqual(conflicts)
 })
 
-test('findScheduleTimeConflicts uses `null` to indicate that the indices share the same course', t => {
+test('uses `null` to indicate that the indices share the same course', () => {
 	let schedule = [
 		{offerings: [
 			{day: 'Mo', times:[{start:1000, end:1200}]},
@@ -84,5 +83,5 @@ test('findScheduleTimeConflicts uses `null` to indicate that the indices share t
 		[true, true, null],
 	]
 
-	t.deepEqual(findScheduleTimeConflicts(schedule), conflicts)
+	expect(findScheduleTimeConflicts(schedule)).toEqual(conflicts)
 })

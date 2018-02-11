@@ -1,7 +1,6 @@
-import test from 'ava'
-import convertTimeStringsToOfferings from '../src/convert-time-strings-to-offerings'
+import convertTimeStringsToOfferings from '../convert-time-strings-to-offerings'
 
-test('convertTimeStringsToOfferings turns the timestrings into semi-usable objects', t => {
+test('turns the timestrings into semi-usable objects', () => {
 	let course = {times: ['MT 0100-0400PM', 'MF 0905-1000']}
 
 	let expected = [
@@ -12,10 +11,10 @@ test('convertTimeStringsToOfferings turns the timestrings into semi-usable objec
 
 	let actual = convertTimeStringsToOfferings(course)
 
-	t.deepEqual(actual, expected)
+	expect(actual).toEqual(expected)
 })
 
-test('convertTimeStringsToOfferings correctly joins different times on the same day', t => {
+test('correctly joins different times on the same day', () => {
 	let course = {times: ['M-Th 0100-0200PM', 'MF 0905-1000']}
 
 	let expected = [
@@ -28,16 +27,16 @@ test('convertTimeStringsToOfferings correctly joins different times on the same 
 
 	let actual = convertTimeStringsToOfferings(course)
 
-	t.deepEqual(actual, expected)
+	expect(actual).toEqual(expected)
 })
 
-test('convertTimeStringsToOfferings returns different time objects for different days', t => {
+test('returns different time objects for different days', () => {
 	let actual = convertTimeStringsToOfferings({times: ['MF 0905-1000']})
 
-	t.not(actual[0].times[0], actual[1].times[0])
+	expect(actual[0].times[0]).not.toBe(actual[1].times[0])
 })
 
-test('convertTimeStringsToOfferings joins locations with times offered', t => {
+test('joins locations with times offered', () => {
 	let info = {times: ['MF 0905-1000'], locations: ['TOH 103']}
 
 	let expected = [
@@ -47,10 +46,10 @@ test('convertTimeStringsToOfferings joins locations with times offered', t => {
 
 	let actual = convertTimeStringsToOfferings(info)
 
-	t.deepEqual(actual, expected)
+	expect(actual).toEqual(expected)
 })
 
-test('convertTimeStringsToOfferings can join together multiple location/time pairs', t => {
+test('can join together multiple location/time pairs', () => {
 	let info = {
 		times: ['MF 0905-1000', 'W 1000-1155'],
 		locations: ['TOH 103', 'RNS 203'],
@@ -64,5 +63,5 @@ test('convertTimeStringsToOfferings can join together multiple location/time pai
 
 	let actual = convertTimeStringsToOfferings(info)
 
-	t.deepEqual(actual, expected)
+	expect(actual).toEqual(expected)
 })

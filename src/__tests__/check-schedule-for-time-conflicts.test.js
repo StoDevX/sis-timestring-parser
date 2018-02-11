@@ -1,7 +1,6 @@
-import test from 'ava'
-import checkScheduleForTimeConflicts from '../src/check-schedule-for-time-conflicts'
+import checkScheduleForTimeConflicts from '../check-schedule-for-time-conflicts'
 
-test('checkScheduleForTimeConflicts checks if there is a time conflict in a schedule', t => {
+test('checks if there is a time conflict in a schedule', () => {
 	let schedule = [
 		{offerings: [
 			{day: 'Mo', times:[{start:1300, end:1600}, {start:905, end:1000}]},
@@ -20,5 +19,5 @@ test('checkScheduleForTimeConflicts checks if there is a time conflict in a sche
 		]},
 	]
 
-	t.true(checkScheduleForTimeConflicts(schedule))
+	expect(checkScheduleForTimeConflicts(schedule)).toBe(true)
 })
