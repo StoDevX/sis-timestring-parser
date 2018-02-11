@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 2.3.2
+- Fix post-compilation files being in the wrong location (`/lib/src`, instead of just `/lib`)
+
 ## 2.3.1
 - Fixed `{groupBy: sis}` to not overwrite the offerings if the same key is given twice
 
