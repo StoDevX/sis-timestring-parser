@@ -14,7 +14,7 @@
     "lib/"
   ],
   "scripts": {
-    "build": "babel src/*.js --out-dir lib/",
+    "build": "babel src/*.js --out-dir lib/ && mv lib/src/* lib/",
     "clean": "rm -rf lib/",
     "prepublishOnly": "npm run test && npm run build",
     "test": "jest"
