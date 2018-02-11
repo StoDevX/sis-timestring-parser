@@ -12,12 +12,10 @@ matrix:
         - npm test -- --coverage
         - npx coveralls < ./coverage/lcov.info
 
-    - install: skip
-      script:
+    - script:
+        - npm run prepublishOnly
         - PKG="$(npm pack)"
         - tar xz < "$PKG"
         - cd ./package
-        - ls -la .
-        - ls -la *
         - npm install
         - npx browserify@16 index.js > bundle.js
