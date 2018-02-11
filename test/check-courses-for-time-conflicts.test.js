@@ -1,8 +1,7 @@
-import test from 'ava'
 import checkCoursesForTimeConflicts from '../src/check-courses-for-time-conflicts'
 import convertTimeStringsToOfferings from '../src/convert-time-strings-to-offerings'
 
-test('checkCoursesForTimeConflicts checks for course time conflicts', t => {
+test('checkCoursesForTimeConflicts checks for course time conflicts', () => {
 	let courses = [
 		{offerings: [
 			{day: 'Mo', times:[{start:1300, end:1600}, {start:905, end:1000}]},
@@ -21,18 +20,18 @@ test('checkCoursesForTimeConflicts checks for course time conflicts', t => {
 		]},
 	]
 
-	t.true(checkCoursesForTimeConflicts(courses[0], courses[1]))
+	expect(checkCoursesForTimeConflicts(courses[0], courses[1])).toBe(true)
 
-	t.false(checkCoursesForTimeConflicts(courses[0], courses[2]))
-	t.false(checkCoursesForTimeConflicts(courses[1], courses[2]))
+	expect(checkCoursesForTimeConflicts(courses[0], courses[2])).toBe(false)
+	expect(checkCoursesForTimeConflicts(courses[1], courses[2])).toBe(false)
 })
 
-test('checkCoursesForTimeConflicts handles the output of convertTimeStringsToOfferings', t => {
+test('checkCoursesForTimeConflicts handles the output of convertTimeStringsToOfferings', () => {
 	let testing = [
 		{offerings: convertTimeStringsToOfferings({times: ['M 1255-0325PM']})},
 		{offerings: convertTimeStringsToOfferings({times: ['MWF 0200-0255PM']})},
 	]
 
-	t.true(checkCoursesForTimeConflicts(testing[0], testing[1]))
-	t.true(checkCoursesForTimeConflicts(testing[1], testing[0]))
+	expect(checkCoursesForTimeConflicts(testing[0], testing[1])).toBe(true)
+	expect(checkCoursesForTimeConflicts(testing[1], testing[0])).toBe(true)
 })
