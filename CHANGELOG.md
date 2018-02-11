@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 2.3.0
+- Added new `{groupBy: sis}` optional second parameter to `convertTimeStringsToOfferings`
+    - It maintains the groupings that SIS gives us, instead of re-grouping multiple times into a single day
+
 ## 2.2.13
 - Fixes bundled package – I had forgotten how to publish properly
 
