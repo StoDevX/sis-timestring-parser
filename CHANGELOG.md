@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 2.3.1
+- Fixed `{groupBy: sis}` to not overwrite the offerings if the same key is given twice
+
 ## 2.3.0
 - Added new `{groupBy: sis}` optional second parameter to `convertTimeStringsToOfferings`
     - It maintains the groupings that SIS gives us, instead of re-grouping multiple times into a single day
