@@ -5,7 +5,19 @@ import zip from 'lodash/zip'
 import findDays from './find-days'
 import findTime from './find-time'
 
-export default function convertTimeStringsToOfferings(course) {
+export default function convertTimeStringsToOfferings(course, {groupBy='day'}={}) {
+	// you may group by "day" or by "sis", where "sis" retains the groupings given by SIS
+
+	if (groupBy === 'day') {
+		return convertAndGroupByDay(course)
+	} else if (groupBy === 'sis') {
+		return convertAndGroupLikeSis(course)
+	} else {
+		throw new TypeError(`"${groupBy}" is not a valid groupBy mode`)
+	}
+}
+
+function convertAndGroupByDay(course) {
 	let offerings = {}
 
 	zip(course.times, course.locations).forEach(([sisTimestring, location]) => {
@@ -31,6 +43,28 @@ export default function convertTimeStringsToOfferings(course) {
 			mergeWith(offerings[day], offering,
 				(a, b) => Array.isArray(a) ? a.concat(b) : undefined)
 		})
+	})
+
+	return values(offerings)
+}
+
+function convertAndGroupLikeSis(course) {
+	let offerings = {}
+
+	zip(course.times, course.locations).forEach(([sisTimestring, location]) => {
+		const [daystring, timestring] = sisTimestring.split(' ')
+
+		const days = findDays(daystring)
+		const time = findTime(timestring)
+		const key = days.join(',')
+
+		let offering = {days, ...time}
+
+		if (location) {
+			offering.location = location
+		}
+
+		offerings[key] = offering
 	})
 
 	return values(offerings)
